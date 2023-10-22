@@ -31,7 +31,7 @@ public class MyComparator {
         calendar2.set(Calendar.YEAR, someDate2.getYear());
         calendar2.set(Calendar.MONTH, someDate2.getMonth() - 1);
         calendar2.set(Calendar.DATE, someDate2.getDay());
-        return calendar1.getTimeInMillis() / 100_000_000 - calendar2.getTimeInMillis() / 100_000_000;
+        return (long) ((calendar1.getTimeInMillis() - calendar2.getTimeInMillis()) / Math.pow(10, 9));
     }
 
     public static class SomeDate {
