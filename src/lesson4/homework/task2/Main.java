@@ -1,6 +1,6 @@
 package lesson4.homework.task2;
 
-import javax.crypto.spec.PSource;
+import java.util.Arrays;
 
 public class Main {
     /*2. Задача: Эмуляция интернет-магазина
@@ -15,10 +15,27 @@ public class Main {
 6 - Вывести в консоль итоговое количество совершённых покупок после выполнения приложения.*/
 
     public static void main(String[] args) {
-        Items[] items = Items.values();
-        Customer[] customers = {new Customer("Pavel", 30, 1000),
-                new Customer("Anastasiya", 25, 5000),
-                new Customer("Oleg", 40, 3000)};
+        Customer[] customers = {new Customer("Oleg", 25, 2000),
+                new Customer("Ivan", 30, 5000),
+                new Customer("Pavel", 35, 4000),
+                new Customer("Anastas", 40, 5000)};
+        Item[] items = {new Item(10, "Gum"),
+                new Item(50, "Milk"),
+                new Item(40, "Bread"),
+                new Item(100, "Meat"),
+                new Item(75, "Beer")};
+
+
+        Order[] newOrders = {makePurchase(items[3], customers[0]), makePurchase(items[0], customers[2]),
+                makePurchase(items[1], customers[1]), makePurchase(items[2], customers[3])};
+
+        System.out.println(Arrays.toString(newOrders));
+
+
+    }
+
+    public static Order makePurchase(Item someItem, Customer someCustomer) {
+        return new Order(someItem, someCustomer);
     }
 
 }
